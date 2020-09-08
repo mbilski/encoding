@@ -1214,7 +1214,7 @@ func (m *testMarshaller) UnmarshalJSON(data []byte) error {
 }
 
 func TestGithubIssue11(t *testing.T) {
-	// https://github.com/segmentio/encoding/issues/11
+	// https://github.com/mbilski/encoding/issues/11
 	v := struct{ F float64 }{
 		F: math.NaN(),
 	}
@@ -1239,7 +1239,7 @@ type S string
 func (s S) String() string { return string(s) }
 
 func TestGithubIssue13(t *testing.T) {
-	// https://github.com/segmentio/encoding/issues/13
+	// https://github.com/mbilski/encoding/issues/13
 	v := Issue13{}
 
 	b, err := Marshal(v)
@@ -1275,7 +1275,7 @@ func TestGithubIssue13(t *testing.T) {
 }
 
 func TestGithubIssue15(t *testing.T) {
-	// https://github.com/segmentio/encoding/issues/15
+	// https://github.com/mbilski/encoding/issues/15
 	tests := []struct {
 		m interface{}
 		s string
@@ -1342,7 +1342,7 @@ type structC struct{ M Marshaler }
 type structD struct{ M encoding.TextMarshaler }
 
 func TestGithubIssue16(t *testing.T) {
-	// https://github.com/segmentio/encoding/issues/16
+	// https://github.com/mbilski/encoding/issues/16
 	tests := []struct {
 		value  interface{}
 		output string
@@ -1423,7 +1423,7 @@ func TestDecoderInputOffset(t *testing.T) {
 }
 
 func TestGithubIssue18(t *testing.T) {
-	// https://github.com/segmentio/encoding/issues/18
+	// https://github.com/mbilski/encoding/issues/18
 	b := []byte(`{
 	"userId": "blah",
 	}`)

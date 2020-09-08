@@ -21,21 +21,21 @@ test:
 $(benchstat):
 	GO111MODULE=off go get -u golang.org/x/perf/cmd/benchstat
 
-# This compares segmentio/encoding/json to the standard golang encoding/json;
+# This compares mbilski/encoding/json to the standard golang encoding/json;
 # for more in-depth benchmarks, see the `benchmarks` directory.
 bench-simple: $(benchstat)
 	@go test -v -run '^$$' -bench /codeResponse -benchmem -benchtime 3s -cpu 1 ./json -package encoding/json -count 8 | tee /tmp/encoding-json.txt
-	@go test -v -run '^$$' -bench /codeResponse -benchmem -benchtime 3s -cpu 1 ./json -count 8 | tee /tmp/segmentio-encoding-json.txt
-	benchstat /tmp/encoding-json.txt /tmp/segmentio-encoding-json.txt
+	@go test -v -run '^$$' -bench /codeResponse -benchmem -benchtime 3s -cpu 1 ./json -count 8 | tee /tmp/mbilski-encoding-json.txt
+	benchstat /tmp/encoding-json.txt /tmp/mbilski-encoding-json.txt
 
 bench-master: $(benchstat)
 	git stash
 	git checkout master
-	@go test -v -run '^$$' -bench /codeResponse -benchmem -benchtime 3s -cpu 1 ./json -count 8 | tee /tmp/segmentio-encoding-json-master.txt
+	@go test -v -run '^$$' -bench /codeResponse -benchmem -benchtime 3s -cpu 1 ./json -count 8 | tee /tmp/mbilski-encoding-json-master.txt
 	git checkout -
 	git stash pop
-	@go test -v -run '^$$' -bench /codeResponse -benchmem -benchtime 3s -cpu 1 ./json -count 8 | tee /tmp/segmentio-encoding-json.txt
-	benchstat /tmp/segmentio-encoding-json-master.txt /tmp/segmentio-encoding-json.txt
+	@go test -v -run '^$$' -bench /codeResponse -benchmem -benchtime 3s -cpu 1 ./json -count 8 | tee /tmp/mbilski-encoding-json.txt
+	benchstat /tmp/mbilski-encoding-json-master.txt /tmp/mbilski-encoding-json.txt
 
 update-golang-test: $(golang.test.files)
 	@echo "updated golang tests to $(golang.version)"

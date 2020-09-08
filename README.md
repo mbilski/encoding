@@ -18,7 +18,7 @@ performance library, we also aim for very low development and maintenance overhe
 by implementing APIs that can be used as drop-in replacements for the default
 solutions.
 
-## encoding/json [![GoDoc](https://godoc.org/github.com/segmentio/encoding/json?status.svg)](https://godoc.org/github.com/segmentio/encoding/json)
+## encoding/json [![GoDoc](https://godoc.org/github.com/mbilski/encoding/json?status.svg)](https://godoc.org/github.com/mbilski/encoding/json)
 
 More details about the implementation of this package can be found [here](json/README.md).
 
@@ -38,7 +38,7 @@ import (
 to
 ```go
 import (
-    "github.com/segmentio/encoding/json"
+    "github.com/mbilski/encoding/json"
 )
 ```
 
@@ -95,7 +95,7 @@ Although this package aims to be a drop-in replacement of [`encoding/json`](http
 it does not guarantee the same error messages. It will error in the same cases
 as the standard library, but the exact error message may be different.
 
-## encoding/iso8601 [![GoDoc](https://godoc.org/github.com/segmentio/encoding/iso8601?status.svg)](https://godoc.org/github.com/segmentio/encoding/iso8601)
+## encoding/iso8601 [![GoDoc](https://godoc.org/github.com/mbilski/encoding/iso8601?status.svg)](https://godoc.org/github.com/mbilski/encoding/iso8601)
 
 The `iso8601` sub-package exposes APIs to efficiently deal with with string
 representations of iso8601 dates.
